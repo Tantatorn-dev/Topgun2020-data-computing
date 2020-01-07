@@ -1,0 +1,24 @@
+{
+  "name": "topgun-data-computing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Timefear007/Topgun2020-data-computing.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Timefear007/Topgun2020-data-computing/issues"
+  },
+  "homepage": "https://github.com/Timefear007/Topgun2020-data-computing#readme",
+  "dependencies": {
+    "@tensorflow/tfjs-node": "^1.5.1",
+    "csvtojson": "^2.0.10",
+    "plotly": "^1.0.6"
+  }
+}
