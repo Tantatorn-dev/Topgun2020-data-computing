@@ -21,7 +21,10 @@ async function createData(filename) {
         ys.push(Number.parseFloat(rawData[index]['Label (Y)']))
     })
 
-    return [xs, ys]
+    xv = xs.slice(9,10)
+    yv = ys.slice(9,10)
+
+    return [xs, ys,xv,yv]
 }
 
 function callback(epoch, logs) {
@@ -98,10 +101,11 @@ async function predictModel(model, xv) {
     let learning_rate = 0.01
     let n_layers = 4
 
-    let [xs, ys] = await createData("tfjs-stocks-data.csv")
+    let [xs, ys,xv,yv] = await createData("tfjs-stocks-data.csv")
 
     let { model, hist } = await trainModel(xs, ys, training_size, window_size, n_epochs, learning_rate, n_layers, callback)
 
-    let y_pred = await predictModel(model, xs.slice(0,2))
-    console.log(y_pred)
+    let y_pred = await predictModel(model,xv)
+    console.log('y prediction '+y_pred)
+    console.log('y actual '+yv)
 })()
